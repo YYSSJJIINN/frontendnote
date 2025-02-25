@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<h1>02. 이벤트 전파 방지</h1>
+	<pre>
+	이벤트 객체의 stopPropagation 메서드는 이벤트 전파를 중지 시킨다.
+	</pre>
+
+	<ul id="drink">
+		<li>커피</li>
+		<li>콜라</li>
+		<li>우유</li>
+	</ul>
+	<script>
+		const $drink = document.getElementById('drink');
+
+		$drink.addEventListener('click', e => {		// 클릭하면 이벤트 발생
+			console.log('ul에 등록된 이벤트 핸들러 발동...');
+			if(e.target.matches('li')) {	// 만약 li를 누른거면 빨간색으로 칠해진다.
+				console.log('클릭된 요소는 li가 맞음!');
+				e.target.style.color = 'red';
+			}
+		});
+
+		// 이벤트 전파 방지: 첫번째 li는 color를 blue로 변경
+		document.querySelector('li').addEventListener('click', e => {
+			console.log('li에 등록된 이벤트 핸들러 발동...');
+			e.stopPropagation();	// 전파 방지 기능이므로, 위로 빠져나가다가 $drink.addEventListener를 건들이는걸 막아서 red로 덮어쓰지 않고 blue를 유지한다.
+			e.target.style.color = 'blue';		// taget된 것을 파란색으로 바꾼다.
+		});
+	</script>
+</body>
+</html>

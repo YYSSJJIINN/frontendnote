@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<h1>01. 브라우저 기본 동작 중단</h1>
+	<pre>
+	이벤트 객체의 preventDefault 메서드는 DOM 요소의 기본 동작을 중단시킨다. 
+	예를 들어 a 요소를 클릭하면 href 어트리뷰트에 지정 된 링크로 이동하고, 
+	checkbox 또는 radio 요소를 클릭하면 체크 또는 해제되는 것 등을 기본 동작이라고 한다. 
+	</pre>
+
+	<a href="https://www.google.com">클릭해도 절대 이동할 수 없는 a태그</a>
+	<br>
+	<input type="checkbox">클릭해도 절대 체크되지 않는 체크박스
+	<br>
+	<input type="checkbox">와랄라 고양이 귀여워
+	<script>
+		document.querySelector('a').addEventListener('click', e => {
+			e.preventDefault();		// 이벤트의 기본동작을 막는다. <a>의 기본동작인 하이퍼링크 이동이 불가능.
+		});
+
+		document.querySelector('input[type=checkbox]').addEventListener('click', e => {
+			e.preventDefault();		// 이벤트의 기본동작을 막는다. <input checkbox>의 기본동작인 체크가 불가능.
+		});
+	</script>
+
+	<hr>
+
+	<form>
+		<label>민초파 답정너: 아이스크림 무슨 맛 먹을래?</label><br />
+
+		<input type="radio" id="option1" name="options" value="1" />
+		<label for="option1">엄마는 외계인</label><br />
+		
+		<input type="radio" id="option2" name="options" value="2" checked />
+		<label for="option2">민트초코</label><br />
+		
+		<input type="radio" id="option3" name="options" value="3" />
+		<label for="option3">아몬드 봉봉</label>
+	</form>
+	<script>
+		document.querySelector('form').addEventLisetener('click', e => {
+			if(e.target.type === 'radio') e.preventDefault();
+		});
+	</script>
+</body>
+</html>

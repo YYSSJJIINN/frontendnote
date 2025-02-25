@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<h1>02. navigator</h1>
+	<pre>
+	navigator 객체는 브라우저와 운영체제에 대한 정보를 제공한다.
+	객체엔 다양한 프로퍼티가 있는데, 가장 잘 알려진 프로퍼티는 현재 사용 중인 브라우저 정보를 알려주는 navigator.userAgent와
+	브라우저가 실행 중인 운영체제(Windows, Linux, Mac 등) 정보를 알려주는 navigator.platform이다.
+	</pre>
+	<script>
+		console.dir(window.navigator);
+
+		const {userAgent, platform, vendor} = window.navigator;
+		// 네가 사용중인 브라우저 Chrome
+		console.log(userAgent);		// Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36
+		// 네가 사용중인건 윈도우
+		console.log(platform);		// Win32
+		// 공급사
+		console.log(vendor);		// Google Inc.
+	</script>
+</body>
+</html>

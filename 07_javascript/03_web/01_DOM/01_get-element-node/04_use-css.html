@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .area {
+            width: 100px;
+            height: 100px;
+            border: 1px solid lightgray;
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <h1>04. CSS 선택자를 이용한 요소 노드 취득</h1>
+    <pre>
+    <b>Document.prototype/Element.prototype.querySelector 메서드는 인수로 전달한 'CSS 선택자'를 만족시키는 '하나의 요소' 노드를 탐색하여 반환한다.</b>
+    </pre>
+    <div class="area">
+        <p>first</p>
+    </div>
+    <div class="area">
+        <p>second</p>
+    </div>
+    <script>
+        /* 1. Document.prototype.querySelector */   // 단수 쿼리 검색 : querySelector
+        const $area = document.querySelector('.area');
+
+        console.log($area);
+        console.log(typeof $area);
+
+        /* 1. Element.prototype.querySelector */
+        const $first = $area.querySelector('p');    // 안에 내용물이 없기 때문에 그냥 태그 이름으로 검색한다.
+
+        console.log($first);
+        console.log(typeof $first);
+    </script>
+    <pre>
+        <b>Document.prototype/Element.prototype.querySelectorAll 메서드는 인수로 전달한 CSS 선택자를 만족시키는 모든 요소 노드를 탐색하여 반환한다.</b>
+        여러 개의 요소 노드 객체를 갖는 DOM 컬렉션 객체인 NodeList 객체를 반환한다.
+    </pre>
+    
+    <ul id="list">
+        <li class="drink">커피</li>
+        <li class="drink">콜라</li>
+        <li class="food">김치찌개</li>
+        <li class="food">된장찌개</li>
+    </ul>
+    <script>
+        /* 1. Document.prototype.querySelectorAll */
+        const $list = document.querySelectorAll('ul>li');   // ul 태그에게 li 자손이 있다면 그걸 검색해줘.
+        
+        console.log($list);
+
+        // NodeList 객체는 HTMLCollection 객체와 비슷하게 유사객체배열이면서 이터러블이다.
+        // 따라서 스프레드 문법 및 Array.from 메서드를 사용해 배열로 변환할 수 있다.
+        Array.from($list).forEach(li => li.style.backgroundColor = 'grey');
+
+        /* 2. Element.prototype.querySelectorAll */
+        // list 하위 요소들 중, food 클래스를 갖는 모든 요소를 NodeList 객체로 반환
+        const $foodLists = document.getElementById('list').querySelectorAll('.food');
+
+        console.log($foodLists);
+
+        [...$foodLists].forEach(li => li.style.color = 'white');
+
+        // CSS 선택자를 만족시키는 요소가 없는 경우, 빈 NodeList 객체가 반환됨.
+        const $noElem = document.querySelectorAll('noElement');
+        console.log($noElem);
+    </script>
+</body>
+</html>

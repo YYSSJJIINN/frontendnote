@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<h1>01. timeout</h1>
+
+	<h3>1) setTimeout</h3>
+	<pre>
+	setTimeout(func|code[, delay, param1, param2, ...]);
+		
+	setTimeout 함수는 두 번째 인수로 전달 받은 시간(ms, 1/1000초)으로 단 한 번 동작하는 타이머를 생성한다. 
+	이후 타이머가 만료 되면 첫 번재 인수로 전달 받은 콜백 함수가 호출 된다. 
+	콜백 함수에 전달 해야 하는 인수가 존재하는 경우 세 번째 이후의 인수로 전달할 수 있다. 
+	</pre>
+	<script>
+		/* 전달인자 2개 */
+		//setTimeout(() => {}, 3000);		// 3000은 시간초를 의미하는 number타입이고, () => {}가 함수function() 핸들러를 화살표 함수로 바꾼 것이다.
+		setTimeout(() => console.log('타이머 동작합니다~'), 5000);	// 5000 밀리초. 즉 5초다.
+
+		/* 전달인자 3개 */
+		setTimeout((msg) => console.log(`1...2... ${msg}`), 2000, '기다렸니?');	// 2000 밀리초. 즉 2초다.
+		// 세번째 전달인자 '기다렸니?'가 (msg)에 들어가고 이것이 console.log로 옮겨짐
+
+		/* 전달인자 4개 이상 */
+		// setTimeout((첫번째 전달인자) => {}, 두번째 전달인자 시간초, 그 이후의 전달인자는 any[]이므로 정해지지 않았음);
+		setTimeout((param1, param2, param3) => console.log(`3개 받아요~`, param1, param2, param3),
+		5000, '이거슨 문자열입니다.', 212, true);
+		// param1:'이거슨 문자열입니다.', param2:212, param3:true
+	</script>
+
+	<hr>
+
+	<h3>2) clearTimeout</h3>
+	<pre>
+	setTimeout 함수는 생성된 타이머를 식별할 수 있는 고유한 타이머 id를 반환한다. 
+	반환한 id를 clearTimeout 함수의 인수로 전달하여 타이머를 취소할 수 있다. 
+	</pre>
+	<script>
+		// timerId에 변수는 즉시할당된다. cuz, console.log가 없으니까.
+		const timerId = setTimeout(() => console.log('나는 3초짜리 타이머인데, 곧 취소될거야~'), 3000);
+
+		/* setTimeout 함수의 반환값인 타이머의 id는 환경에 따라 다르게 보일 수 있다.
+		브라우저 환경에서는 숫자로, Node.js 환경에서는 객체로 표현된다.
+		*/
+		console.log('내가 꺼야 할 자명종의 id:', timerId);
+		clearTimeout(timerId)
+	</script>
+</body>
+</html>

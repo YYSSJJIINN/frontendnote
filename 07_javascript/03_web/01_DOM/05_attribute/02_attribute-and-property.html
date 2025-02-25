@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<h1>02. HTML 어트리뷰트와 DOM 프로퍼티</h1>
+	
+	<pre>
+	HTML 어트리뷰트 : HTML 요소의 초기 상태를 지정하며 변하지 않는다.
+	어트리뷰트 노드에서 관리 되며 값을 얻거나 변경하려면 getAttribute/setAttribute 메서드를 사용한다. 
+	DOM 프로퍼티 : 사용자가 입력한 최신 상태를 관리한다. 
+	사용자의 입력에 의한 상태 변화에 반응하여 언제나 최신 상태를 유지한다.
+	</pre>
+	
+	<label for="username">유저명</label>
+	<input type="text" id="username" value="user01">
+	<label for="nickname">닉네임</label>
+	<input type="text" id="nickname" value="JSBeginner">
+	<script>
+		const $user = document.getElementById('username');
+
+		// 사용자가 input 요소의 입력 필드에 값을 입력할 때마다 트리거링 되는 이벤트 정의
+		$user.oninput = () => {
+			console.log('value 프로퍼티 값:', $user.value);
+			console.log('value 어트리뷰트 값:', $user.getAttribute('value'));
+		};
+
+		const $nickname = document.getElementById('nickname');
+
+		// DOM 프로퍼티에 값을 할당하여 HTML 요소의 최신 상태를 변경 (JSBeginner -> JSMaster)
+		$nickname.value = 'JSMaster';
+
+		console.log('value 프로퍼티 값:', $nickname.value);
+		console.log('value 어트리뷰트 값:', $nickname.getAttribute('value'));
+
+		/* id 어트리뷰트는 사용자 입력에 의한 상태 변화와 관계 없는 어트리뷰트이기 때문에
+		id 어트리뷰트와 id 프로퍼티는 항상 동일한 값으로 연동되어 있다.
+		(일종의 예외 경우라고 생각하면 됨)
+		*/
+		$nickname.id = 'nick';
+		console.log($nickname.id);						// nick
+		console.log($nickname.getAttribute('id'));		// nick
+	</script>
+
+	<hr>
+
+	<pre>
+	getAttribute 메서드로 취득한 어트리뷰트 값은 언제나 문자열이다.
+	하지만 DOM 프로퍼티로 취득한 최신 상태 값은 문자열이 아닐 수 있다.
+	checkbox 요소의 checked 어트리뷰트 값은 문자열이지만 checked 프로퍼티 값은 불리언 타입이다.
+	</pre>
+		
+		<label for="check">확인</label>
+		<input type="checkbox" id="check" checked>
+		
+	<script>
+		const $checkbox = document.querySelector('input[type=checkbox]');
+		// getAttribute 메서드로 얻은 어트리뷰트 값은 문자열
+		console.log($checkbox.getAttribute('checked')); 		// ''
+		console.log(typeof $checkbox.getAttribute('checked')); 	// string
+
+		// DOM 프로퍼티로 얻은 최신 상태 값은 불리언
+		console.log($checkbox.checked); 		// true
+		console.log(typeof $checkbox.checked); 	// boolean
+	</script>
+
+	<hr>
+
+    <h2>다양한 어트리뷰트와 프로퍼티 타입 비교</h2>
+    
+    <input type="number" id="age" value="25">
+    <select id="selection" multiple>
+        <option selected>Option 1</option>
+    </select>
+    <div id="height" style="height: 100px;">높이</div>
+
+    <script>
+        // number 타입 input
+        const $age = document.getElementById('age');
+        console.log($age.getAttribute('value'));      // "25" (문자열)
+        console.log(typeof $age.value);              // number (숫자)
+
+        // multiple 속성
+        const $select = document.getElementById('selection');
+        console.log($select.getAttribute('multiple')); // "" (문자열)
+        console.log(typeof $select.multiple);         // boolean (불리언)
+
+        // selected 속성
+        const $option = document.querySelector('option');
+        console.log($option.getAttribute('selected')); // "" (문자열)
+        console.log(typeof $option.selected);         // boolean (불리언)
+
+        // style 속성
+        const $div = document.getElementById('height');
+        console.log($div.getAttribute('style'));      // "height: 100px;" (문자열)
+        console.log(typeof $div.style);              // object (객체)
+        console.log($div.style.height);              // "100px"
+    </script>
+</body>
+</html>

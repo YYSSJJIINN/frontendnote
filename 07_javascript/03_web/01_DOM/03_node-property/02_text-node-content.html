@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<h1>02. 요소 노드의 텍스트 조작</h1>
+
+	<h3>nodeValue</h3>
+	<pre>
+	지금까지 살펴본 노드 탐색, 노드 정보 프로퍼티는 모두 읽기 전용 접근자 프로퍼티이다.
+	Node.prototype.nodeValue 프로퍼티는 setter와 getter가 모두 존재하는 접근자 프로퍼티이다. 
+
+	nodeValue 프로퍼티 참조 시 노드 객체의 값(텍스트 노드의 텍스트)을 반환한다.
+	텍스트 노드가 아닌 노드(문서 노드, 요소 노드)의 경우 null을 반환한다.
+
+	텍스트 노드의 nodeValue 프로퍼티에 값을 할당하면 텍스트 노드의 값을 변경할 수 있다.
+	</pre>
+	<!-- 
+	접근자 프로퍼티(accessor property):
+	객체의 특정 값을 읽거나 설정할 때 사용되는 특별한 종류의 프로퍼티.
+	- getter
+		- 객체의 특정 프로퍼티 값을 읽으려고 할 때 호출되는 함수.
+		- 값을 반환하는 역할을 수행하며 파라미터는 받지 않음.
+	- setter
+		- 객체의 특정 프로퍼티에 값을 설정하려고 할 때 호출되는 함수.
+		- 값을 설정하는 역할을 수행하며 하나의 파라미터(설정하고자 하는 값)를 받음.
+    -->
+
+	<div id="area">nodeValue</div>
+	<script>
+		// 문서 노드는 텍스트 노드가 아니기 때문에 nodeValue 프로퍼티 자체가 무의미하다.
+		// 따라서 null을 반환한다.
+		console.log(document.nodeValue);		// null
+
+		// 요소 노드는 텍스트 노드가 아니기 때문에 nodeValue 프로퍼티 자체가 무의미하다.
+		// 따라서 null을 반환한다.
+		const $area = document.getElementById('area');
+		console.log($area.nodeValue);					// null
+
+		// getter : 값 읽기
+		const $textNode = $area.firstChild;
+		console.log($textNode.nodeValue);		// 현재 시점 : nodeValue
+
+		// setter : 값 쓰기
+		$textNode.nodeValue = '텍스트 노드 값 변경!';
+		console.log($textNode.nodeValue);	// 변경 후: 텍스트 노드 값 변경!
+	</script>
+
+
+
+	<h3>textContent</h3>
+	<pre>
+	Node.prototype.textContent 프로퍼티는 setter와 getter 모두 존재하는 접근자 프로퍼티로서
+	요소 노드의 텍스트와 모든 자손 노드의 텍스트를 모두 취득하거나 변경한다.
+	
+	요소 노드의 textContent 프로퍼티를 참조하면 요소 노드의 콘텐츠 영역 내의 텍스트롤 모두 반환하며 이 때 HTML 마크업은 무시된다.
+	<!-- 즉, textContent는 텍스트에만 집착하는 프로퍼티라고 이해하면 된다. -->
+	요소 노드의 textContext 프로퍼티에 문자열을 할당하면 요소 노드의 모든 자식 노드가 제거 되고 할당한 문자열이 텍스트로 추가 된다.
+	이 때도 HTML 마크업은 무시되고 문자열 텍스트로 취급된다.
+	
+	innerText 프로퍼티는 textContent 프로퍼티와 유사한 동작을 하지만 CSS에 순종적(예를 들어 visibility:hidden; 은 반환하지 않음)이고,
+	CSS 고려로 인해 느리기 때문에 사용하지 않는 것이 좋다.
+	</pre>
+	
+	<div id="area2">textContent<span>내부 span</span></div>
+	<script>
+		const $area2 = document.getElementById('area2');
+
+		// HTML 마크업(여기서는 <span></span> 태그)이 무시된 div 내부의 전체 컨텐츠를 텍스트로 취득.
+		console.log($area2.textContent);	// textContent 내부 span
+
+		// nodeValue 프로퍼티를 사용하면 텍스트 노드의 값만 변환 가능하기 때문에
+		// textContent 프로퍼티를 사용하는 것 보다 코드가 복잡해진다.
+		console.log($area2.nodeValue);							// nul
+		console.log($area2.firstChild.nodeValue);				// textContent
+		console.log($area2.lastChild.firstChild.nodeValue);		// 내부 span
+
+		$area2.textContent = 'textContent 변경 완료 <span>내부 span</span>';
+	</script>
+</body>
+</html>

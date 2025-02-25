@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<h1>01. location</h1>
+
+	<h3>BOM(Browser Object Model)</h3>
+	<pre>
+	브라우저 객체 모델은 문서 이외의 모든 것을 제어하기 위해 브라우저(호스트 환경)가 제공하는 추가 객체를 나타낸다. 
+	</pre>
+
+	<h3>location</h3>
+	<pre>
+	location 객체는 현재 URL을 읽을 수 있게 해주고 새로운 URL로 변경(redirect)할 수 있게 해준다. 
+	</pre>
+
+	<h3>location 예제</h3>
+
+	<button id="btn1">새 페이지로 이동하기</button><br>
+	<button id="btn2">새 페이지로 이동하기</button><br>
+	<button id="btn3">새 페이지로 이동하기</button><br>
+	<button id="btn4">새 페이지로 이동하기(뒤로 가기 불가)</button><br>
+	<button id="btn5">서버로부터 현재 페이지 리로드하기</button><br>
+	<button id="btn6">서버로부터 현재 페이지 리로드하기</button><br>
+	<button id="btn7">서버로부터 현재 페이지 리로드하기</button><br>
+	<script>
+		// 1. location.assign() : 지정된 URL로 페이지를 이동. 브라우저의 세션 기록에 추가되므로 뒤로가기 가능.
+		document.getElementById('btn1').onclick = () => location.assign('https://yyssjjiinn.github.io/cakeshoppractice/');
+
+		// 2. location = "someURL"/''/`` 상관없음 : URL을 직접 할당하여 페이지를 이동. (앞에서 본 assign과 동일하게 동작함.)
+		document.getElementById('btn2').onclick = () => location = "https://www.google.com";
+
+		// 3. location.href = 'someURL' : 현재 페이지를 지정된 URL로 변경. (앞에서 본 assign과 동일하게 동작함.)
+		document.getElementById('btn3').onclick = () => location.href = 'https://www.google.com';
+
+		// 4. location.replace() : 지정된 URL로 페이지를 이동하되, 브라우저의 세션 기록에 추가되지 않아 뒤로가기 불가능.
+		document.getElementById('btn4').onclick = () => location.replace("https://www.google.com");
+
+		// 5. location.reload() : 현재 페이지를 서버에서 새로고침. (캐시를 사용하지 않음)
+		document.getElementById('btn5').onclick = () => location.reload();
+
+		// 6. location = location : 현재 페이지를 다시 로드. (캐시를 사용한 새로고침이라고 보면 됨)
+		document.getElementById('btn6').onclick = () => location = location;
+
+		// 7. location.href = location.href : 현재 페이지를 다시 로드. (캐시를 사용한 새로고침이라고 보면 됨)
+		document.getElementById('btn7').onclick = () => location.href = location.href;
+	</script>
+</body>
+</html>

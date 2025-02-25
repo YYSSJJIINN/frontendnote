@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .area {
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <h1>01. id를 이용한 요소 노드 취득</h1>
+	<pre>
+	<b>Document.prototype.getElementById 메서드는 인수로 전달한 id 어트리뷰트 값을 갖는 하나의 요소 노드를 탐색하여 반환한다.</b>
+	문서 내에 중복 된 id 값을 갖는 HTML 요소가 여러 개 존재하더라도 에러가 발생하지는 않지만 해당 id 값을 갖는 첫 번째 요소 노드만 반환한다. 
+	</pre>
+
+	<div id="area1" class="area">
+		div 영역
+		<p id="area2">p 영역</p>
+	</div>
+	<div id="area1" class="area">
+		div 영역
+	</div> 
+    <script>
+        // 현재 문서에서 id 어트리뷰트가 area1인 요소 노드를 검색해 변수에 저장.
+        const $elem = document.getElementById('area1');
+        // 동일한 검색 조건에 부합되는 다수의 요소가 존재한다면, 첫 번째 요소를 반환한다.
+        console.log($elem);
+        console.log(typeof $elem);
+
+        $elem.style.backgroundColor = 'skyblue';
+
+        // id 값을 갖는 HTML 요소가 존재한다면, id 속성값을 그대로 따온 전역 변수를 이용할 수 있다.
+        area2.style.backgroundColor = 'yellow';
+    </script>
+</body>
+</html>
