@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="Generator" content="EditPlus®">
+	<meta name="Author" content="">
+	<meta name="Keywords" content="">
+	<meta name="Description" content="">
+	<title>영역 관련 태그들</title>
+</head>
+
+<body>
+	<!--
+		영역을 구분하는 태그
+		<div> : 줄 바꿈이 적용되어 이미 존재하는 태그의 다음 줄에 영역이 설정됨 (블럭요소)
+		<span> : 줄 바꿈이 적용되지 않아 옆으로 영역이 붙음 (인라인요소)
+		<p> : 문단 영역을 지정하는 태그(블럭요소)
+		<pre> : 입력한대로 문단 영역을 지정하는 태그(블럭요소)
+	-->
+	<h1>영역 관련 태그</h1>
+	<h3>div태그</h3>
+	<div style="border:1px solid black;background:red;width:100px;height:100px;">첫 번째 영역</div>
+	<div style="border:1px solid black;background:yellow;width:100px;height:100px;">두 번째 영역</div>
+	<div style="border:1px solid black;background:green;width:100px;height:100px;">세 번째 영역</div>
+	<hr>
+	<h3>span태그</h3>
+	<span style="border:1px solid black;background:red;width:100px;height:100px;">첫 번째 영역</span>
+	<span style="border:1px solid black;background:yellow;width:100px;height:100px;">두 번째 영역</span>
+	<span style="border:1px solid black;background:green;width:100px;height:100px;">세 번째 영역</span>
+
+	<hr>
+
+	<h3>div태그와 span태그의 영역</h3>
+	<b>div영역<b>
+	<div style="background:yellow">새가 봄바람을 인생을 듣기만 우리 힘있다. 같이, 지혜는 우리는 속에 것은 가슴에 오아이스도 끓는 피어나는 약동하다. 위하여 그들은 일월과
+		인도하겠다는 방지하는 주며,
+		쓸쓸한 사막이다. 살았으며, 위하여 싶이 천지는 피어나기 끓는 있는 지혜는 뿐이다. 이것을 인생에 어디 품었기 철환하였는가? 꽃 미인을 가지에 쓸쓸한 것이다. 거친 방황하여도, 있는
+		위하여,
+		철환하였는가? 작고 우리 우리 원대하고, 어디 위하여서. 청춘의 황금시대를 오아이스도 끝까지 장식하는 두손을 철환하였는가? 동력은 현저하게 따뜻한 사랑의 이것은 듣는다. 새가 하였으며,
+		끓는 되는 철환하였는가?</div>
+	<br>
+	<b>span영역</b><br>
+	<span style="background:cyan">새가 봄바람을 인생을 듣기만 우리 힘있다.
+		같이, 지혜는 우리는 속에 것은 가슴에 오아이스도 끓는 피어나는 약동하다. 위하여 그들은 일월과 인도하겠다는 방지하는 주며, 쓸쓸한 사막이다. 살았으며, 위하여 싶이 천지는 피어나기 끓는
+		있는 지혜는 뿐이다.
+		이것을 인생에 어디 품었기 철환하였는가? 꽃 미인을 가지에 쓸쓸한 것이다. 거친 방황하여도, 있는 위하여, 철환하였는가? 작고 우리 우리 원대하고, 어디 위하여서. 청춘의 황금시대를
+		오아이스도 끝까지 장식하는 두손을 철환하였는가?
+		동력은 현저하게 따뜻한 사랑의 이것은 듣는다. 새가 하였으며, 끓는 되는 철환하였는가?</span>
+
+	<hr>
+
+	<!-- 
+		iframe (Inline Frame)이란?
+		- 현재 HTML 문서 안에 다른 문서나 콘텐츠를 삽입할 수 있는 태그
+		- 주로 유튜브 영상, 지도, 다른 웹페이지 등을 넣을 때 사용
+		
+		주요 속성 설명:
+		- width, height: iframe의 가로와 세로 크기 지정
+		- src: 삽입할 콘텐츠의 URL 주소
+		- frameborder: 테두리 표시 여부 (0: 테두리 없음, 1: 테두리 있음)
+		- allowfullscreen: 전체화면 모드 허용 여부
+		- allow: iframe 내에서 허용할 기능들 명시 (예: 자동재생, 암호화된 미디어 등)
+	-->
+	<iframe width="854" height="480" src="https://www.youtube.com/embed/gbpZ3lCd50g" frameborder="0"
+		gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+	<iframe width="989" height="556" src="https://www.youtube.com/embed/yvgae1yz02s"
+		title="하필이면 &quot;마동석&quot;을 또 건드려버린 범죄 조직의 최후" frameborder="0"
+		allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+		allowfullscreen></iframe>
+
+	<hr>
+
+	<div style="color:crimson; border: 5px; height:50; width: 50;">보행자 빨간불</div>
+	<div style="color: darkgreen;">보행자 초록불</div>
+
+	<span style="color:red;">차량용 빨간불</span>
+	<span style="color: gold;">차량용 노란불</span>
+	<span style="color: seagreen;">차량용 초록불</span>
+
+</body>
+
+</html>

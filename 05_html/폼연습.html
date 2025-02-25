@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>필수가 아닌 회원정보 입력</title>
+</head>
+<body>
+    <caption>고객정보입력</caption>
+    <form action="memberinfononnes" method="post">
+        <fieldset>
+            <legend>취미. 필수 작성 칸은 아님</legend>
+            <label>1 : </label><input type="text" name="첫번재 취미"><br>
+            <label>2 : </label><input type="text" name="두번재 취미"><br>
+            <label>3 : </label><input type="text" name="세번재 취미"><br>
+        </fieldset>
+        <fieldset>
+            <legend>주소. 필수 작성 칸은 아님</legend>
+            <label>시 : </label><input type="text" name="큰 단위"><br>
+            <label>구 : </label><input type="text" name="중간 단위"><br>
+            <label>동 : </label><input type="text" name="제일 작은 단위"><br>
+        </fieldset>
+    </form>
+    <input type="submit">
+    <input type="submit" value="넘기기">
+    <button type="submit">작성완료</button>
+
+    <hr>
+
+    <form action="보안필수내용" method="post">
+        <h2>text와 관련된 input태그</h2>
+        <h4>type="text"</h4>
+        <p>: 한 줄짜리 텍스트를 입력할 수 있는 텍스트 상자이다.</p>
+        <label>아이디: </label>
+        <input type="text" placeholder="아이디를 입력하세요." autofocus><button type="submit">중복확인</button>
+        <h4>type="password"</h4>
+        <p></p>
+        <h4>type="email"</h4>
+        <p></p>
+        <h4>type="number"</h4>
+        <p></p>
+        <!-- tel로 지정하면 다이얼버튼으로 고정 -->
+        <h4>type="tel"</h4>
+        <p></p>
+        <h4>type="url"</h4>
+        <p></p>
+        <h4>type="checkbox"</h4>
+        <p></p>
+        <h4>type="radio"</h4>
+        <p></p>
+        <h4>type="range"</h4>
+        <h4>type="date"</h4>
+        <h4>type="datetime-local"</h4>
+        <h4>type="month"</h4>
+        <h4>type="week"</h4>
+        <h4>type="time"</h4>
+        <h4>type="file"</h4>
+        <h4>type="color"</h4>
+        <h4>type="hidden"</h4>
+        <h4>type="button"</h4>
+        <h4>type="submit"</h4>
+        <h4>type="reset"</h4>
+        <h4>type="image"</h4>
+        <h4>required</h4>
+        <h4>type="readonly"</h4>
+        <h4>type="disabled"</h4>
+        <h4>value</h4>
+        <h4>type="maxlength"</h4>
+    </form>
+</body>
+</html>
