@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* style 태그 내에서 CSS 주석은 이렇게 Java의 범위 주석과 비슷한 스타일로 작성해야 한다. */
+        /* 
+            여러줄 주석도
+            가능함
+         */
+        /* 1. 모든 선택자 : '*'기호(와일드카드)를 사용해 HTML 내 모든 엘리먼트를 취득(get)함. */
+        /* *{color: red;} */
+
+        /* 2. 태그 선택자 */
+        p,h1 {color: blue;}
+        li {color: green;}
+
+        /* 3. 아이디 선택자 */
+        #id2, #id4 {color: orange;}
+
+        /* 4. 클래스 선택자 */
+        .class1 {
+            color: navy;    /* color: 글자색 */
+            background-color: grey;    /* background-color: 배경색 */
+        }
+
+        .class2 {
+            color: white;
+        }
+
+        .class3 {
+            background-color: purple;
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <h1>CSS 기본 선택자</h1>
+
+    <p>선택자(selector)란?<br>
+        특정한 HTML 태그를 선택할 때 사용하는 기능으로, 태그를 선택하여 원하는 스타일과 기능을 적용할 수 있다.
+    </p>
+
+    <hr>
+
+
+    <h2>1. 모든 선택자</h2>
+    <p>HTML 문서 안의 모든 태그를 선택할 때 전체 선택자를 사용할 수 있다.</p>
+    <ul>
+        <li>테스트1</li>
+        <li>테스트2</li>
+        <li>테스트3</li>
+    </ul>
+
+    <hr>
+
+    <h2>2. 태그 선택자</h2>
+    <p>HTML 문서 내에 같은 태그를 모두 선택할 때 사용한다.</p>
+    <p>- p {color: red}와 같은 형태로 사용한다.</p>
+
+    <hr>
+
+    <h2>3. 아이디 선택자</h2>
+    <p>HTML 문서 내에 해당되는 id 속성의 값을 가진 태그를 선택할 때 사용한다.</p>
+    <p>- #아이디명 {color: orange;}와 같은 형태로 사용한다.</p>
+    <ol>
+        <li id="id1">아이디 선택자 테스트1</li>
+        <li id="id2">아이디 선택자 테스트2</li>
+        <li id="id3">아이디 선택자 테스트3</li>
+        <li id="id4">아이디 선택자 테스트4</li>
+        <li id="id5">아이디 선택자 테스트5</li>
+    </ol>
+
+    <h2>4. 클래스 선택자</h2>
+    <p>HTML 문서 내에 해당되는 class 속성의 값을 가진 태그를 선택할 때 사용한다.</p>
+    <p>- .클래스명 {color: green;}와 같은 형태로 사용한다.</p>
+    <ul>
+        <li class="class1">클래스 선택자 테스트1</li>
+        <li class="class2">클래스 선택자 테스트2</li>
+        <li class="class3 class1 class2">클래스 선택자 테스트3</li>
+        <li class="class2">클래스 선택자 테스트4</li>
+        <li class="class1">클래스 선택자 테스트5</li>
+    </ul>
+
+    <button>클릭해보세요~</button>
+
+    <script type="text/javascript">
+
+        // button 엘리먼트를 선택하여 myBtn 변수에 할당
+        let myBtn = document.querySelector('button');
+
+        // myBtn을 클릭했을 때:
+        myBtn.onclick = () => {
+            //ul태그 내 li태그들 중, class2라는 클래스를 가진 li 요소를 모두 선택하여 testLi 변수에 할당.
+            //ul태그 안 li태그에 있는 .class2가 선택되어 testLi에 취득된다.
+            //class2가 들어있는 모든걸 다 가져오므로 배열로 들어온다.
+            let testLi = document.querySelectorAll('ul>li.class2');
+
+            for(let i = 0; i < testLi.length; i++) {
+                testLi[i].style.backgroundColor = 'lime'
+                testLi[i].style.color = 'yellow';
+            }
+        };
+
+    </script>
+</body>
+</html>

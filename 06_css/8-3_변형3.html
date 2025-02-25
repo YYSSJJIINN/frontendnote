@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>변형3</title>
+    <style>
+    /* CSS 변형(Transform)과 벤더 프리픽스(Vendor Prefix)
+    1. 벤더 프리픽스란?
+    - 브라우저 제작사별로 실험적인 CSS 기능을 구현할 때 사용하는 접두사다.
+    - 주요 벤더 프리픽스:
+    * -webkit- : 크롬, 사파리, 최신 오페라 (웹킷 기반)
+    * -moz-    : 파이어폭스
+    * -ms-     : 인터넷 익스플로러
+    * -o-      : 예전 오페라
+
+    2. -webkit-transform과 transform
+    - -webkit-transform은 웹킷(WebKit) 기반 브라우저에서 변형 효과를 적용하기 위한 접두사 속성이다.
+    - CSS3의 transform 속성이 표준화되기 전에 실험적 기능으로 사용됨.
+    - 현재는 대부분의 최신 브라우저가 '-webkit-'와 같은 접두사가 없는 transform을 지원하지만,
+    이전 구버전 브라우저와의 호환성을 위해 아직도 두 스타일 속성을 함께 사용하는 관례가 남아있음.
+
+    3. 사용 방법
+    - 벤더 프리픽스 버전을 먼저 작성하고, 표준 속성을 나중에 작성.
+    - 예시:
+    .element {
+    -webkit-transform: translateX(50px);  -> 웹킷 기반 브라우저에서 사용되는 변형 속성
+    transform: translateX(50px);			    -> 표준 변형 속성
+    }
+      */
+            img {
+                width: 250px;
+                height: 200px;
+                margin-left: 200px;
+            }
+
+            .trans1:hover {
+                -webkit-transform: translateX(50px);	/* 웹킷 기반 브라우저에서 사용되는 변형 속성 */
+                transform: translateX(50px);			    /* 표준 변형 속성 */
+            }
+
+            .trans2:hover {
+                -webkit-transform: translateY(50px);
+                transform: translateY(50px);
+            }
+
+            .trans3:hover {
+                -webkit-transform: translate(50px, 50px);
+                transform: translate(50px, 50px);
+            }
+
+            .trans4:hover {
+                -webkit-transform: scaleX(2);
+                transform: scaleX(2);
+            }
+
+            .trans5:hover {
+                -webkit-transform: scaleY(2);
+                transform: scaleY(2);
+            }
+
+            .trans6:hover {
+                -webkit-transform: scale(1.5, 1.5);
+                transform: scale(1.5, 1.5);
+            }
+
+            .trans7:hover {
+                -webkit-transform: rotate(45deg);
+                transform: rotate(45deg);
+            }
+
+            .trans8:hover {
+                -webkit-transform: rotate(-30deg);
+                transform: rotate(-30deg);
+            }
+
+            .trans9:hover {
+                -webkit-transform: skewX(45deg);
+                transform: skewX(45deg);
+            }
+
+            .trans10:hover {
+                -webkit-transform: skew(30deg, -50deg);
+                transform: skew(30deg, -50deg);
+            }
+    </style>
+</head>
+<body>
+    <h1>2차원 변형</h1>
+    <h3>좌우로 움직이기</h3>
+    <img src="../01_html/sample/image/flower1.PNG" class="trans1" />
+    <h3>상하로 움직이기</h3>
+    <img src="../01_html/sample/image/flower2.PNG" class="trans2" />
+    <h3>대각선으로 움직이기</h3>
+    <img src="../01_html/sample/image/flower3.PNG" class="trans3" />
+
+    <h3>가로로 확대 축소</h3>
+    <img src="../01_html/sample/image/flower4.PNG" class="trans4" />
+    <h3>세로로 확대 축소</h3>
+    <img src="../01_html/sample/image/flower5.PNG" class="trans5" />
+    <h3>전체로 확대 축소</h3>
+    <div id="test">
+    <img src="../01_html/sample/image/river1.PNG" class="trans6" />
+    </div>
+
+    <hr />
+
+    <h3>지정한 각도만큼 회전</h3>
+    <img src="../01_html/sample/image/river2.PNG" class="trans7" />
+    <h3>지정한 각도만큼 회전(다른각도)</h3>
+    <img src="../01_html/sample/image/city1.PNG" class="trans8" />
+
+    <hr />
+
+    <h3>지정한 각도만큼 가로로 뒤틀기</h3>
+    <img src="../01_html/sample/image/tower1.PNG" class="trans9" />
+    <h3>지정한 각도만큼 전체 뒤틀기</h3>
+    <img src="../01_html/sample/image/forest1.PNG" class="trans10" />
+</body>
+</html>

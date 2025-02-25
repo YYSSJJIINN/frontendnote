@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        @keyframes trans1 {
+            from {
+                background: yellow;
+                border: 1px solid black;
+            }
+            to {
+                background: pink;
+                border-radius: 50px;
+                transform: rotateZ(360deg);
+                border: 3px solid red;
+            }
+        }
+
+        @keyframes trans2 {
+            0% {
+                background-color: pink;
+                border: 3px solid beige;
+            }
+            30%{
+
+            }
+        }
+
+        .div1 {
+            margin: 100px;
+            width: 100px;
+            height: 100px;
+            background: gray;
+            animation-name: trans1;
+            animation-duration: 5s;
+            animation-direction: alternate-reverse;
+            animation-iteration-count: infinite;
+        }
+
+        img {
+            margin: 100px;
+            width: 100px;
+            height: 100px;
+            background: gray;
+            animation-name: trans1;
+            animation-duration: 5s;
+            animation-direction: alternate-reverse;
+            animation-iteration-count: infinite;
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <h1>애니메이션</h1>
+    <div class="div1"></div>
+    <div class="div2"></div>
+    <img src="05_html/sample/image/city1" alt="도시의 야경">
+</body>
+</html>
